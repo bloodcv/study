@@ -81,7 +81,7 @@ promise.then(onFulfilled, onRejected)
     ```
 
     6.1 onFulfilled 或 onRejected 的执行结果为 x，调用resolvePromise
-    6.2 如果  onFulfilled 或 onRejected 执行时抛出异常 e，promise2 需要被 reject
+    6.2 如果 onFulfilled 或 onRejected 执行时抛出异常 e，promise2 需要被 reject
     6.3 如果 onFulfilled 不是一个函数，promise2 以 promise1 的 value 触发 fulfilled
     6.4 如果 onRejected 不是一个函数，promise2 以 promise1 的 reason 触发 rejected
 
@@ -94,4 +94,21 @@ promise.then(onFulfilled, onRejected)
   7.1 如果 promise2 === x 那么 reject TypeError
   7.2 如果 x 是一个 promise
 
+      7.2.1 如果 x 是 pending 态，那么 promise 必须要在 pending ，直到 x 变成 fulfilled 或 rejected
+      7.2.2 如果 x 被 fulfilled，fulfill promise width the same value
+      7.2.3 如果 x 被 rejected，reject promise width the same reason
+
   7.3 如果 x 是一个 Object 或者是一个 Function
+
+      let then = x.then
+      7.3.1 如果 x.then 这步出错，那么 reject promise width e as the reason
+      7.3.2 如果 then 不是一个 function
+        fulfill promise width x
+      7.3.2 如果 then 是一个 function
+        then.call(x, resolvePromiseFn, rejectPromise)
+        resolvePromiseFn 的 入参是 y, 执行 resolvePromise(promise2, y, resolve, reject);
+        rejectPromise 的 入参是 r, reject promise with r.
+        如果 resolvePromise 和 rejectPromise 都调用了，那么第一个调用优先，后面的调用忽略。
+        如果调用then抛出异常e 
+            如果 resolvePromise 或 rejectPromise 已经被调用，那么忽略
+            则，reject promise with e as the reason
