@@ -4,11 +4,10 @@ const REJECTED = "rejected";
 
 class Mypromise {
 
-  FULFILLED_CALLBACK_LIST = [];
+  FULLFILLED_CALLBACK_LIST = [];
   REJECTED_CALLBACK_LIST = [];
   _status = PENDING;
   constructor(fn) {
-    this.status = _status;
     this.value = null;
     this.reason = null;
     try {
@@ -56,25 +55,30 @@ class Mypromise {
       : (value) => value;
     const realOnRejected = this.isFunction(onRejected)
       ? onRejected
-      : (reason) => reason;
+      : (reason) => {throw reason};
     const promise2 = new Mypromise((resolve, reject) => {
       const fulfilledMicrotask = () => {
-        try {
-          const x = realOnFulfilled(this.value);
-          this.resolvePromise(promise2, x, resolve, reject);
-        } catch (e) {
-          reject(e)
-        }
+        queueMicrotask(() => {
+          try {
+            const x = realOnFulfilled(this.value);
+            this.resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }          
+        })
       }
 
       const rejectedMicrotask = () => {
-        try {
-          const x = realOnRejected(this.reason);
-          this.resolvePromise(promise2, x, resolve, reject);
-        } catch (e) {
-          reject(e)
-        }
+        queueMicrotask(() => {
+          try {
+            const x = realOnRejected(this.reason);
+            this.resolvePromise(promise2, x, resolve, reject);
+          } catch (e) {
+            reject(e)
+          }          
+        })
       }
+      
       switch (this.status) {
         case FULFILLED: {
           fulfilledMicrotask();
@@ -85,7 +89,7 @@ class Mypromise {
           break;
         }
         case PENDING: {
-          this.FULFILLED_CALLBACK_LIST.push(fulfilledMicrotask);
+          this.FULLFILLED_CALLBACK_LIST.push(fulfilledMicrotask);
           this.REJECTED_CALLBACK_LIST.push(rejectedMicrotask);
           break;
         }
@@ -98,7 +102,65 @@ class Mypromise {
     return typeof params === "function";
   }
 
-  resolvePromise() {
+  resolvePromise(promise2, x, resolve, reject) {
+    if (promise2 === x) {
+      return reject(new TypeError('The promise and the return value are the same'))
+    }
 
+    if (x instanceof Mypromise) {
+      queueMicrotask(() => {
+        x.then(y => {
+          this.resolvePromise(promise2, y, resolve, reject);
+        }, reject)
+      })
+    } else if (typeof x === 'object' || this.isFunction(x)) {
+      if (x === null) {
+        return resolve(x);
+      }
+
+      let then = null;
+      
+      try {
+        then = x.then;
+      } catch (e) {
+        return reject(e);
+      }
+
+      if (this.isFunction(then)) {
+        let called = false;
+        try {
+          then.call(x,
+            y => {
+              if (called) return;
+              called = true;
+              this.resolvePromise(promise2, y, resolve, reject);
+            },
+            r => {
+              if (called) return;
+              called = true;
+              reject(r)
+            });
+        } catch (e) {
+          if (called) return;
+          reject(e)
+        }
+      }
+
+    } else {
+      reject(x);
+    }
   }
 }
+
+
+const test = new Mypromise((resolve, reject) => {
+  setTimeout(() => {
+      resolve(111);
+  }, 1000);
+}).then(console.log);
+
+console.log('===test===:', test);
+
+setTimeout(() => {
+  console.log('===test=setTimeout==:', test);
+}, 2000)
