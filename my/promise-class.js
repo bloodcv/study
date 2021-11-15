@@ -98,6 +98,10 @@ class Mypromise {
     return promise2;
   }
 
+  catch(onRejected) {
+    return this.then(null, onRejected)
+  }
+
   isFunction(params) {
     return typeof params === "function";
   }
@@ -150,10 +154,75 @@ class Mypromise {
       reject(x);
     }
   }
+
+  // 静态resolve方法
+  static resolve(value) {
+    if (value instanceof Mypromise) {
+      return value
+    }
+
+    return new Mypromise(resolve => {
+      resolve(value)
+    })
+  }
+
+  static reject(reason) {
+    return new Mypromise((resolve, reject) => {
+      reject(reason)
+    })
+  }
+
+  static race(promiseList = []) {
+    return new Mypromise((resolve, reject) => {
+      let length = promiseList.length
+      if (length < 1) {
+        resolve()
+      } else {
+        for (let i = 0; i < promiseList.length; i++) {
+          Mypromise.resolve(promiseList[i]).then(
+            (value) => {
+              resolve(value);
+          }, (reason) => {
+              reject(reason);
+          })
+        }
+      }
+    })
+  }
+
+  static all(promiseList = []) {
+    return new Mypromise((resolve, reject) => {
+      let length = promiseList.length
+
+      if (length < 1) {
+        resolve()
+      } else {
+        let goOn = true;
+        let result = [];
+        for (let i = 0; i < promiseList.length; i++) {
+          if (!goOn) {
+            return;
+          }
+          Mypromise.resolve(promiseList[i]).then(
+            (value) => {
+              result[i] = value
+            },
+            (reason) => {
+              goOn = false
+              return reject(reason)
+            }
+          )
+        }
+        if (goOn) {
+          return resolve(result)
+        }
+      }
+    })
+  }
 }
 
 
-const test = new Mypromise((resolve, reject) => {
+/* const test = new Mypromise((resolve, reject) => {
   setTimeout(() => {
       resolve(111);
   }, 1000);
@@ -164,3 +233,37 @@ console.log('===test===:', test);
 setTimeout(() => {
   console.log('===test=setTimeout==:', test);
 }, 2000)
+
+
+const test1 = new Mypromise((resolve, reject) => {
+  setTimeout(() => {
+      reject(111);
+  }, 1000);
+}).then((value) => {
+  console.log('then');
+}).catch((reason) => {
+  console.log('catch');
+}) */
+
+let p1 = new Mypromise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p1')
+  }, 3000);
+})
+let p2 = new Mypromise((resolve, reject) => {
+  setTimeout(() => {
+    resolve('p2')
+  }, 1000);
+})
+
+/* Mypromise.race([p1, p2]).then(res => {
+  console.log(`race-then:${res}`)
+}).catch(res => {
+  console.log(`race-catch:${res}`)
+}) */
+
+Mypromise.all([p1, p2]).then(res => {
+  console.log(`all-then:${res}`)
+}).catch(res => {
+  console.log(`all-catch:${res}`)
+})
