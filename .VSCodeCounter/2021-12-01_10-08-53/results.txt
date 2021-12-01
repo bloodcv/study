@@ -1,0 +1,49 @@
+Date : 2021-12-01 10:08:53
+Directory : /Users/saya/Documents/test/study
+Total : 14 files,  283 codes, 27 comments, 38 blanks, all 348 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| Vue        |          4 |        106 |          0 |         13 |        119 |
+| JSON       |          2 |         82 |         11 |          2 |         95 |
+| TypeScript |          4 |         44 |         15 |         12 |         71 |
+| Markdown   |          2 |         30 |          0 |          9 |         39 |
+| HTML       |          1 |         16 |          1 |          1 |         18 |
+| JavaScript |          1 |          5 |          0 |          1 |          6 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                              | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                 |         14 |        283 |         27 |         38 |        348 |
+| my                                                                |         13 |        272 |         27 |         35 |        334 |
+| my/public                                                         |          1 |         16 |          1 |          1 |         18 |
+| my/src                                                            |          8 |        150 |         15 |         25 |        190 |
+| my/src/components                                                 |          1 |         57 |          0 |          4 |         61 |
+| my/src/router                                                     |          1 |         22 |          3 |          5 |         30 |
+| my/src/views                                                      |          2 |         21 |          0 |          4 |         25 |
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                          | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| /Users/saya/Documents/test/study/my/README.md                     | Markdown   |         19 |          0 |          6 |         25 |
+| /Users/saya/Documents/test/study/my/babel.config.js               | JavaScript |          5 |          0 |          1 |          6 |
+| /Users/saya/Documents/test/study/my/package.json                  | JSON       |         53 |          0 |          1 |         54 |
+| /Users/saya/Documents/test/study/my/public/index.html             | HTML       |         16 |          1 |          1 |         18 |
+| /Users/saya/Documents/test/study/my/src/App.vue                   | Vue        |         28 |          0 |          5 |         33 |
+| /Users/saya/Documents/test/study/my/src/components/HelloWorld.vue | Vue        |         57 |          0 |          4 |         61 |
+| /Users/saya/Documents/test/study/my/src/main.ts                   | TypeScript |          8 |          0 |          3 |         11 |
+| /Users/saya/Documents/test/study/my/src/router/index.ts           | TypeScript |         22 |          3 |          5 |         30 |
+| /Users/saya/Documents/test/study/my/src/shims-tsx.d.ts            | TypeScript |         10 |          2 |          2 |         14 |
+| /Users/saya/Documents/test/study/my/src/shims-vue.d.ts            | TypeScript |          4 |         10 |          2 |         16 |
+| /Users/saya/Documents/test/study/my/src/views/About.vue           | Vue        |          5 |          0 |          1 |          6 |
+| /Users/saya/Documents/test/study/my/src/views/Home.vue            | Vue        |         16 |          0 |          3 |         19 |
+| /Users/saya/Documents/test/study/my/tsconfig.json                 | JSON       |         29 |         11 |          1 |         41 |
+| /Users/saya/Documents/test/study/readme.md                        | Markdown   |         11 |          0 |          3 |         14 |
+| Total                                                             |            |        283 |         27 |         38 |        348 |
++-------------------------------------------------------------------+------------+------------+------------+------------+------------+

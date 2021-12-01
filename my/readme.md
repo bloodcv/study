@@ -1,4 +1,24 @@
-#### Q: 对于同一个dom 同时存在事件捕获和时间冒泡 先执行哪一个
+# my
 
-- 对于老版本的浏览器 跟书写顺序有关
-- 新版本浏览器 更正了这个问题 一定是先捕获后冒泡 
+## Project setup
+```
+yarn install
+```
+
+### Compiles and hot-reloads for development
+```
+yarn serve
+```
+
+### Compiles and minifies for production
+```
+yarn build
+```
+
+### Lints and fixes files
+```
+yarn lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
