@@ -1,7 +1,7 @@
 <template>
   <SlotContainer class="page1">
     <template v-slot:topSec>
-      <h5>这是page1头</h5>
+      <h5>this is Page1</h5>
     </template>
     <template v-slot:leftSec>
       <span>1234额</span>
@@ -22,15 +22,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Mixins } from 'vue-property-decorator';
 import SlotContainer from '../components/SlotContainer.vue';
+import ComMixins from '../mixins';
 
 @Component({
   components: {
     SlotContainer
   },
 })
-export default class Page1 extends Vue {
+export default class Page1 extends Mixins(ComMixins) {
+  mounted() {
+    console.log(`Page1 - mounted - ${ this.mixinsName }`)
+  }
+
+  beforeDestroy() {
+    console.log(`Page1 - beforeDestroy - ${ this.enterTime }`)
+  }
 }
 </script>
 
