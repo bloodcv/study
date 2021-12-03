@@ -1,10 +1,5 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>|
-      <router-link to="/list">List</router-link>
-    </div> -->
     <transition :name="transitionName">
       <router-view/>
     </transition>
@@ -20,7 +15,7 @@ export default class App extends Vue {
   public transitionName = '';
 
   @Watch("$route")
-  onRouteChange(to: Route, from: Route) {
+  onRouteChange(to: Route, from: Route):void {
     this.transitionName = to!.meta!.depth >= from!.meta!.depth ? 'slide-left' : 'slide-right'
   }
 }

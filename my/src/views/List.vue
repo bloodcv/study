@@ -15,7 +15,7 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {},
 })
 export default class List extends Vue {
-  get list() {
+  get list():Array<string> {
     return new Array(100).fill('').map((item, idx) => `/detail/${idx}`)
   }
 }

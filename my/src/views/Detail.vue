@@ -14,13 +14,13 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {},
 })
 export default class Detail extends Vue {
-  get id() {
+  get id():number {
     return (this as any).$route.params.id
   }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .detail {
   width: 100%;
   background-color: cornsilk;

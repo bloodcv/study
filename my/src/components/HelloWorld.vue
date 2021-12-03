@@ -1,8 +1,9 @@
 <template>
   <div class="hello">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>|
-      <router-link to="/list">List</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/list">List</router-link> |
+      <router-link to="/page1">Page1</router-link>
   </div>
 </template>
 
@@ -30,5 +31,11 @@ li {
 }
 a {
   color: #42b983;
+}
+.hello {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 </style>
