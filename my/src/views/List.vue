@@ -22,6 +22,10 @@ export default class List extends Vue {
 </script>
 
 <style lang="scss" scoped>
+  .list {
+    background-color: rgb(255, 230, 220);
+    width: 100%;
+  }
   .list_wrap {
     display: flex;
     flex-direction: column;

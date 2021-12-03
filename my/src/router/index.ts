@@ -10,7 +10,10 @@ const routes: Array<RouteConfig> = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      depth: 1
+    }
   },
   {
     path: '/about',
@@ -18,17 +21,26 @@ const routes: Array<RouteConfig> = [
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      depth: 1
+    }
   },
   {
     path: '/list',
     name: 'List',
-    component: List
+    component: List,
+    meta: {
+      depth: 2
+    }
   },
   {
     path: '/detail/:id',
     name: 'Detail',
-    component: Detail
+    component: Detail,
+    meta: {
+      depth: 3
+    }
   }
 ]
 

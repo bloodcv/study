@@ -19,3 +19,10 @@ export default class Detail extends Vue {
   }
 }
 </script>
+
+<style lang="scss">
+.detail {
+  width: 100%;
+  background-color: cornsilk;
+}
+</style>

@@ -1,8 +1,8 @@
 <template>
   <div class="hello">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>|
-      <router-link to="/list">List</router-link>
+    <div>
+        <router-link to="/list">To List</router-link>
+    </div>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default class HelloWorld extends Vue {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
+<style scoped lang="less">
 h3 {
   margin: 40px 0 0;
 }
