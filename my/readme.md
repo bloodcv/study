@@ -125,36 +125,33 @@ let b: B = {
   age: 1
 }
 
+// Partial、Require、泛型等
+
 ```
 
+4. 什么是泛型、泛型的具体应用
+-   泛型指的是在定义函数、接口或者类的时候，不预先指定具体的类型，而是在使用的时候根据具体的入参再去指定类型的一种特性
+-   可以把泛型理解为代表类型的参数
 
-
-
-
-
-
-3. 如何基于一个已有类型, 扩展出一个大部分内容相似, 但是有部分区别的类型?
-
-首先可以通过Pick和Omit
 ```ts
-interface Test {
-    name: string;
-    sex: number;
-    height: string;
+
+interface Test<T = any> {
+  name: T
 }
 
-type Sex = Pick<Test, 'sex'>;
+type TSA = Test<string>;
+type TSB = Test<number>;
 
-const a: Sex = { sex: 1 };
+let a: TSA = { name: '' }
+let b: TSB = { name: 1 }
 
-type WithoutSex = Omit<Test, 'sex'>;
-
-const b: WithoutSex = { name: '1111', height: 'sss' };
 ```
 
-比如Partial, Required.
 
-再者可以通过泛型. 
+
+
+
+
 
 4. 什么是泛型, 泛型的具体使用?
 
