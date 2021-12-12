@@ -1,125 +1,70 @@
-# 基于 `CommonJS` 谈谈前端模块化
+# Getting Started with Create React App
 
-> 前端模块化的内容贯穿我们平时的开发工作，最早的 `AMD` 等模块化组织方式现在已经很少使用，本课程基于目前最常见的 `CommonJS`（以下简称为 `CMJ`） 出发，（`ESM` 可能目前更常见，但是其是底层支持的）谈谈模块化的那些事儿
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 课程大纲
+## Available Scripts
 
-1、基于 `CMJ` 理清楚前端模块化
+In the project directory, you can run:
 
-- 模块化是解决了哪些问题（找痛点）
-- 设计思路与解决方案
+### `yarn start`
 
-2、展望未来的模块化机制（`ESM`）
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-- 与 `CMJ` 的对比
-- 社区的动态
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
 
-## 谈谈 `CMJ`
+### `yarn test`
 
-`CMJ` 被熟知得益于 `Node` 社区的炸裂兴起，不过目前 `Node` 已经转移向了 `ESM`。不过有兴趣的依然可以研究研究，`Node` 中的 `CMJ` 实现
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-[`Node` 中 `CMJ` 实现源代码](https://github1s.com/nodejs/node/blob/HEAD/lib/internal/modules/cjs/loader.js)
+### `yarn build`
 
-> 本次课程会更多的从前端（浏览器层面）去探寻 `CMJ` 的一些特点
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-1、模块如何切分？
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-不管是 `CMJ` 还是 `ESM`，都不约而同的选择了以「文件」为基本单位来划分模块。
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-文件是组织代码结构的基本单位，在模块加载器自身的处理上来说，也是一个相对来说更容易的粒度～
+### `yarn eject`
 
-2、如何使用？
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-```js
-// a.js
-exports.action = function () {
-  console.log('Action!');
-}
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-// b.js
-const a = require('./a.js');
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-a.action();
-```
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-其实模块机制也是在设计 `API`，在设计层面，要注重考虑简洁、易用，`CMJ` 统一使用 `require` 关键字来引入模块，暴露模块的方式是挂载到 `exports` 对象引用上（当然也可以重写这个对象引用），这样的设计使得用户使用、学习起来没有过多的心智负担，想想一个模块加载器暴露给你的基本 `API` 就有十几个，你会觉得好用吗？
+## Learn More
 
-3、同步还是异步？
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-这也是设计之初就需要考虑到的问题，对模块的加载解析过程如果是异步，那必然和同步的处理方式有极大的区别，`CMJ` 是 之所以被 `Node` 采用，也是因为其设计之初考虑的就不是浏览器层面的，更偏向 `Server`, `Node` 本身在 `IO` 上就有足够的底气和实力，同步的方式契合了需求，只是目前推崇的 `ESM` 是官方的，未来的，`Node` 必须妥协于大流。
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-4、一个一个扣细节，一步一步实现
+### Code Splitting
 
-  - 4-1、文件为粒度
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-  如何拿文件内容？
+### Analyzing the Bundle Size
 
-  `Node` 自不用说，本身就是底层可操作文件，但是浏览器层面的话是不支持也不认识 `CMJ` 的模块加载器，更不用说拿文件了，所以得依赖第三方工具，比如 `webpack`，当然，本质也是通过 `Node` 暴露的能力去拿文件内容的
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-  我们今天的 `DEMO` 打算从纯浏览器层面去模拟，所以可以用最简单的方式，就直接写文件字符串了（假设我们通过各种三方能力拿到了文件字符串内容）
+### Making a Progressive Web App
 
-  - 4-2、关键的接口设计
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-  第一，引入的方法 `require`
+### Advanced Configuration
 
-  第二，导出的方式 `exports` (`module.exports`)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-  - 4-3、如何实现隔离，封闭作用域？
+### Deployment
 
-  闭包，`IIFE`
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-  - 4-4、如何绑定 `require` 的能力？
+### `yarn build` fails to minify
 
-  `IIFE` 有的能力，可以注入依赖，这个能力基本就是模块化能力的基石了
-
-  ```js
-  (function (global, exports) {
-    console.log(exports.test);
-  })(window, { test: '测试' })
-  ```
-
-## 官方、未来 -- `ESM`
-
-与 `CMJ` 对比看看：
-
-1、使用方式不同（略）
-
-2、对基本类型，`CMJ` 是值拷贝，`ESM` 则是引用
-
-3、动态运行时，静态编译 (`import` 语句都是静态执行，`export` 则是动态绑定的)
-
-4、`ESM` 提升特性
-
-5、`ESM` 支持 `Top-level await`，`this-undefined`
-
-6、`ESM` 天然支持 `dynamic import`，`CMJ` 本身则是基于运行时
-
-7、`ESM` 现在被大多数现代浏览器原生支持，通过 `type="module"` 进行标识
-
-8、同步，异步
-  
-  > `ESM` 将流程拆分为了三个步骤进行，首先是【构建阶段】解析模块，创建底层数据结构 `Module Record`(可以看成是 `AST` 结构节点)，然后【实例化阶段】解析 `import`, `export` 存入内存（这个时候代码并没执行），【执行阶段】最后才是执行
-  > 然后将执行得到的结果放进对应的内存中，这样的过程拆分为了三个主要步骤，意味着 `ESM` 拥有了 `CMJ` 不具备的异步的能力！
-
-  > 为啥要拆成这么几个步骤？
-  > 前端常常面临的场景是多 `chunk` 渲染，通过入口文件 `<script src='index.js' type='module'/>`进来，可能需要加载很多 `js 模块`，这个时候如果 `ESM` 机制本身是多过程且可分离的，
-  > 就可以最大限度的压榨浏览器并行下载能力，快速加载依赖（当然底层支持按需更`yyds`），这是`ES modules`规范将算法分为多个阶段的原因之一
-
-  > 多阶段算法也有弊端，比如不能 `import { foo } from "${fooPath}/a.js"` 这样使用，因为构建依赖图是在第一阶段，这个时候路径信息是没有的
-  > 为了解决这个问题提出了 `dynamic import`，底层其实单独给这种情况创建了 `Module Record`，然后通过 `module map` 的方式管理起来（`module map` 就是一种管理 `Module Record` 的数据结构）
-
-  > `JS` 引擎会深度优先后序遍历模块树，完成实例化过程，采用动态绑定的方式来联系 `export` `import` 值，这是和 `CMJ` 非常不同的地方
-
-  > 三阶段设计，天生支持循环引用
-  > 没有完成三阶段的时候，会标记为 `Fetching` 状态，循环引用的时候，看到是 `Fetching` 状态就先不管这里了，继续执行，等完成执行阶段，就会把对应的`import`和 `export`链接到一个内存地址
-  > 这样就可以访问到了
-
-## 补充一些参考资料
-
-[编程简史系列](https://segmentfault.com/a/1190000023017398)
-
-[前端模块化详解](https://juejin.cn/post/6844903744518389768#heading-16)
-
-[commonjs 规范 -- 阮一峰](https://javascript.ruanyifeng.com/nodejs/module.html)
-
-[deep into esm](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
