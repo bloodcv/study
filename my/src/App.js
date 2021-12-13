@@ -5,7 +5,8 @@ import './App.css';
 // import { Welcome1, Welcome2 } from './components/CompType';
 // import CartSample from './components/CartSample';
 // import HookTest from './components/HookTest';
-import NewForm from './components/KForm';
+// import NewForm from './components/KForm';
+import KForm from './components/KForm';
 
 export default class App extends Component {
   /* constructor(props) {
@@ -22,7 +23,8 @@ export default class App extends Component {
         {/* <Welcome2 name="welcome2name" /> */}
         {/* <CartSample title="购物" /> */}
         {/* <HookTest /> */}
-        <NewForm />
+        {/* <NewForm /> */}
+        <KForm />
       </div>
     );
   }

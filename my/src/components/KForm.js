@@ -83,7 +83,7 @@ function KFormCreate(Comp) {
   }
 }
 
-// @KFormCreate
+@KFormCreate
 class KForm extends Component {
   constructor(props) {
     super(props)
@@ -126,6 +126,8 @@ class KForm extends Component {
   }
 }
 
-const NewForm = KFormCreate(KForm);
+/* const NewForm = KFormCreate(KForm);
 
-export default NewForm;
+export default NewForm; */
+
+export default KForm;
