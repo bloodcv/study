@@ -1,6 +1,6 @@
 // import logo from './logo.svg';
 import './App.less';
-import { Button } from 'antd';
+import { Button, Divider } from 'antd';
 import { Link, Outlet } from 'react-router-dom';
 
 function App() {
@@ -14,7 +14,11 @@ function App() {
         <Link to="/page2">page2</Link>
         <Link to="/base">base</Link>
         <Link to="/reftest">reftest</Link>
+        <Link to="/basehook">basehook</Link>
+        <Link to="/usestatet">usestate</Link>
+        <Link to="/useeffectt">useeffect</Link>
       </nav>
+      <Divider />
       <Outlet />
     </div>
   );

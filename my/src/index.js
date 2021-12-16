@@ -11,6 +11,9 @@ import Page1 from "./views/Course/Page1";
 import Page2 from "./views/Course/Page2";
 import Base from "./views/Base/base"
 import Parent from "./views/Base/RefTest";
+import BaseHookWrap from "./views/Hook/BaseHookWrap";
+import UseStateT from "./views/Hook/UseStateT";
+import UseEffectT from "./views/Hook/UseEffectT";
 
 const rootElement = document.getElementById("root");
 
@@ -35,6 +38,9 @@ ReactDOM.render(
           <Route path="page2" element={<Page2 />} />
           <Route path="base" element={<Base />} />
           <Route path="reftest" element={<Parent/>} />
+          <Route path="basehook" element={<BaseHookWrap/>} />
+          <Route path="usestatet" element={<UseStateT />} />
+          <Route path="useeffectt" element={<UseEffectT />} />
           <Route
             path="*"
             element={
