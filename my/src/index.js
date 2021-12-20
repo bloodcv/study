@@ -14,6 +14,11 @@ import Parent from "./views/Base/RefTest";
 import BaseHookWrap from "./views/Hook/BaseHookWrap";
 import UseStateT from "./views/Hook/UseStateT";
 import UseEffectT from "./views/Hook/UseEffectT";
+import UseRefT from "./views/Hook/UseRefT";
+import UseCallbackT from "./views/Hook/UseCallbackT";
+import UseMemoT from "./views/Hook/UseMemoT";
+import UseContextT from "./views/Hook/UseContextT";
+import UseImperativeHandleT from "./views/Hook/UseImperativeHandleT";
 
 const rootElement = document.getElementById("root");
 
@@ -41,6 +46,11 @@ ReactDOM.render(
           <Route path="basehook" element={<BaseHookWrap/>} />
           <Route path="usestatet" element={<UseStateT />} />
           <Route path="useeffectt" element={<UseEffectT />} />
+          <Route path="usereft" element={<UseRefT />} />
+          <Route path="usecallbackt" element={<UseCallbackT />} />
+          <Route path="usememot" element={<UseMemoT />} />
+          <Route path="usecontextt" element={<UseContextT />} />
+          <Route path="useimperativehandlet" element={<UseImperativeHandleT /> } />
           <Route
             path="*"
             element={

@@ -16,7 +16,12 @@ function App() {
         <Link to="/reftest">reftest</Link>
         <Link to="/basehook">basehook</Link>
         <Link to="/usestatet">usestate</Link>
-        <Link to="/useeffectt">useeffect</Link>
+        <Link to="/useeffectt">useeffectt</Link>
+        <Link to="/usereft">usereft</Link>
+        <Link to="/usecallbackt">usecallbackt</Link>
+        <Link to="/usememot">usememot</Link>
+        <Link to="/usecontextt">usecontextt</Link>
+        <Link to="/useimperativehandlet">useimperativehandlet</Link>
       </nav>
       <Divider />
       <Outlet />
