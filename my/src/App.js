@@ -4,7 +4,7 @@ import { Button } from 'antd';
 function App() {
   return (
     <div className="App">
-      <Button type="primary">点击</Button>
+      <Button type="primary">45678</Button>
     </div>
   );
 }
