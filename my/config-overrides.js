@@ -8,8 +8,13 @@ const {
 
 const path = require("path");
 
+function resolve(dir) {
+  return path.join(__dirname, dir)
+}
+
 module.exports = override(
   (config) => {
+    config.resolve.alias['@'] = resolve('src')
     const oneOf_loc= config.module.rules.findIndex(n=>n.oneOf)
     config.module.rules[oneOf_loc].oneOf=[    //例如要增加处理less的配置
         {
@@ -58,9 +63,9 @@ module.exports = override(
       },
     },
   }), */
-  addWebpackAlias({
+  /* addWebpackAlias({
     // "@": path.resolve(__dirname, "src"),
     "@": path.resolve("./src"),
-  }),
+  }), */
   addDecoratorsLegacy(),
 );

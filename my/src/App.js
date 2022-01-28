@@ -1,10 +1,17 @@
+import { Link, Outlet } from 'react-router-dom';
 import './App.less';
-import { Button } from 'antd';
 
 function App() {
   return (
     <div className="App">
-      <Button type="primary">45678</Button>
+      <nav className='nav'>
+        <Link to="/CreateStoreT">CreateStoreT</Link>
+        <Link to="/MobxT">MobxT</Link>
+        <Link to="/MobxT2">MobxT2</Link>
+      </nav>
+      <div className='content'>
+        <Outlet />
+      </div>
     </div>
   );
 }
