@@ -16,7 +16,7 @@ const api = (name = '') => new Promise((resolve) => {
       code: 200,
       data: Array(length)
         .fill(0)
-        .map((_, idx) => ({ name: `${name}-${Math.random() * 10}`, id: idx })),
+        .map((_, idx) => ({ name: `${name}-${Math.ceil(Math.random() * 1000)}`, id: idx })),
     });
   }, 3000);
 });
