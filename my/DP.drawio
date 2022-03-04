@@ -1,0 +1,78 @@
+<mxfile host="65bd71144e">
+    <diagram id="fQRx8zBcLPSwf1lLUpr7" name="第 1 页">
+        <mxGraphModel dx="637" dy="269" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="工具" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="120" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="基础" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="20" y="200" width="40" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="设计模式" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="100" width="340" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="组织模块" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="190" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="设计沟通" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="200" y="190" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="代码质量" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="320" y="190" width="100" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="实体展现" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="40" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="系统本身" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="80" y="20" width="340" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="" style="endArrow=none;dashed=1;html=1;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="440" y="240" as="sourcePoint"/>
+                        <mxPoint x="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="11">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="530" y="120" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="" style="shape=curlyBracket;whiteSpace=wrap;html=1;rounded=1;" parent="1" vertex="1">
+                    <mxGeometry x="530" y="10" width="20" height="220" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="五大原则" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="460" y="110" width="60" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="开闭原则-OCP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="565" y="30" width="90" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="开：系统拓展；闭：修改关闭" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+                    <mxGeometry x="670" y="30" width="170" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="单一职责原则-SRP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="70" width="120" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="岗位职责单一，互不重叠" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="70" width="150" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="依赖倒置原则-DIP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="555" y="110" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="上层不应依赖下层实现" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="110" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="接口隔离原则(接口)-ISP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="610" y="150" width="140" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="里氏替换原则-LSP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="555" y="190" width="110" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="子类可以拓展，不可以改变" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="665" y="190" width="160" height="20" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
