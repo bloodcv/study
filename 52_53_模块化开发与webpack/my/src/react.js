@@ -37,7 +37,7 @@ import './reset.css';
 
 const Async = loadComponent(() => import('./Async'))
 const App = () => <div className="red">
-  App:<Async />
+  App1:<Async />
 </div>;
 
 render(
