@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>虚拟列表</title>
+  <link rel="stylesheet" href="./index.css">
+  <!-- <style>
+    .wrap {
+      width: 100vw;
+      height: 50vh;
+      background-color: beige;
+      overflow: auto;
+      position: relative;
+    }
+    .content {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100vw;
+      height: 500vh;
+      background-color: rgb(54, 99, 84);
+      opacity: 0.1;
+    }
+    .content2 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      width: 100vw;
+      height: 10vh;
+      background-color: rgb(167, 119, 55);
+      z-index: 10;
+    }
+  </style> -->
+</head>
+<body>
+  <div id="virtual_list_wrap" class="virtual_list_wrap">
+    <div id="virtual_list_phantom" class="virtual_list_phantom"></div>
+    <div id="virtual_list_content" class="virtual_list_content"></div>
+  </div>
+
+  <script defer type="text/javascript" src="./virtualList.js"></script>
+  <script defer type="module" src="./index.js"></script>
+  <!-- <div class="wrap">
+    <div class="content"></div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+    <div class="content2">111</div>
+  </div> -->
+</body>
+</html>
