@@ -96,7 +96,7 @@ export async function dev() {
   // 起一个服务
   const app = express();
 
-  // 拦截入口请求
+  // 拦截入口请求 返回给用户处理过的html文件
   app.get("/", (req, res) => {
     res.set("Content-Type", "text/html");
 
