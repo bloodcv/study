@@ -1,0 +1,24 @@
+{
+  "name": "my-vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "esno src/opt.command && esno src/dev.command"
+  },  
+  "devDependencies": {
+    "esno": "^0.5.0",
+    "express": "^4.17.1",
+    "prettier": "^2.3.0",
+    "prettier-plugin-organize-imports": "^2.1.0",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "typescript": "^4.2.4",
+    "ws": "^7.4.5"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.2"
+  },
+  "author": "",
+  "license": "ISC"
+}
