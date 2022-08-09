@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="utf-8">
+  <title>webpack</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+
+
+history.pushState(null, null, '')
+      let that = this
+      setTimeout(() => {
+        window.addEventListener('popstate', () => {
+          console.log(123)
+        }, false)
+      }, 500)
+
+  </script>
+</body>
+
+</html>
