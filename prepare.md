@@ -1,9 +1,9 @@
 ## √ 1 promise 手写
 ## √ 2 vite手写
-## 3 webpack 手动搭建
-  ### plugin 实现
-  ### loader 实现
-  ### webpack 跑起来全流程过一遍
+## √ 3 webpack 手动搭建
+  ### √ plugin 实现
+  ### √ loader 实现
+  ### √ webpack 跑起来全流程过一遍
 ## √ 4 设计模式
 ## 5 vue 原理过一遍
 ## √ 6 react 原理过一遍
