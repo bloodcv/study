@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="7cgQfnG6seCh2PDtBS4H" name="第 1 页">
-        <mxGraphModel dx="789" dy="1507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="555" dy="1632" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -246,7 +246,7 @@
                 <mxCell id="103" value="" style="edgeStyle=none;html=1;" parent="1" source="95" target="102" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="95" value="解析HTML、CSS生成DOM树、render树&lt;br&gt;通过browser获取资源，通过GPU线程协助渲染" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                <mxCell id="95" value="解析HTML、CSS生成DOM树、render树&lt;br&gt;通过browser获取资源，通过GPU进程协助渲染" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="1850" y="730" width="270" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="96" value="js执行过程可能造成回流/重绘" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -276,13 +276,13 @@
                 <mxCell id="111" value="1. 内存消耗大，以空间换时间的概念" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="265" y="-120" width="225" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="113" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="2">
+                <mxCell id="113" value="" style="endArrow=classic;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="410" as="sourcePoint"/>
                         <mxPoint x="414" y="-80" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="114" value="&lt;span style=&quot;font-size: 12px&quot;&gt;多进程优劣&lt;/span&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" connectable="0" vertex="1" parent="113">
+                <mxCell id="114" value="&lt;span style=&quot;font-size: 12px&quot;&gt;多进程优劣&lt;/span&gt;" style="edgeLabel;resizable=0;html=1;align=center;verticalAlign=middle;" parent="113" connectable="0" vertex="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint as="offset"/>
                     </mxGeometry>

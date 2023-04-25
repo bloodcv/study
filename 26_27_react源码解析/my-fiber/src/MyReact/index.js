@@ -21,6 +21,7 @@ function createTextVDom(text) {
  * @returns
  */
 function createElement(type, props, ...children) {
+  debugger
   return {
     type,
     props: {
@@ -193,7 +194,7 @@ function buildNewFiber(fiber, workInProgressFiber) {
 }
 
 /**
- * 调和元素，添加操作标识，构建fiber节点关系(diff)
+ * 调和元素，添加操作标识，构建fiber节点关系(diff就在这里进行的, 这里直接用单节点对比，真正的diff会存在单节点多节点分别处理并根据key进行复用)
  * @param {当前需要调和的fiber} workInProgressFiber
  * @param {当前fiber的子元素集合} elements
  */
@@ -412,6 +413,7 @@ function performUnitOfWork(fiber) {
  * @param {当前要渲染的Dom的父级} container
  */
 function render(vDom, container) {
+  debugger
   workInProgressRoot = {
     dom: container,
     props: {

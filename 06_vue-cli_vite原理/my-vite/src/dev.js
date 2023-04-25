@@ -8,7 +8,6 @@ import { transformCode, transformCss, transformJSX } from "./transform";
 
 const targetRootPath = join(__dirname, "../target");
 
-//
 function createWebSocketServer(server) {
   const wss = new WebSocket.Server({
     noServer: true,

@@ -82,7 +82,7 @@
 - `clean-webpack-plugin`
 > 删除构建生成的文件夹
 
-- `mini-css-extrac-plugin`
+- `mini-css-extract-plugin`
 > 将生成的css 抽离出来生成单独的文件
 
 - `webpack-merge`

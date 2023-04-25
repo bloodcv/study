@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <!-- 参考： https://www.jianshu.com/p/bfc0b4b2cd3b -->
+  <h1>主页</h1>
+  <button onclick="clickf()">打开新的标签页</button>
+  <button onclick="sendMsg()">给子页发送消息</button>
+  <script>
+    let nw, canSend;
+    const clickf = () => {
+      nw = window.open('http://127.0.0.1:5500/b.html', '_blank')
+    }
+    const sendMsg = () => {
+      const randomN = Math.ceil(Math.random() * 10)
+      console.log('sendMsg by father:', randomN)
+      if (canSend) {nw.postMessage({msg: randomN}, "*")}
+      else {
+        console.log('子页准备中…')
+      }
+      
+    }
+    window.onload = (e) => {
+      window.onmessage = (e) => {
+        console.log('主页接收的消息:', e)
+        // 当接收到新浏览器窗口init信息后，才开始发送消息
+        if (e.data.msg == 'child init') {
+          canSend = true
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

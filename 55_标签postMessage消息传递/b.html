@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>子页</h1>
+  <button onclick="sendMsg()">给主页发送消息</button>
+  <script>
+    const sendMsg = (msg) => {
+      const randomN = msg || Math.ceil(Math.random() * 10)
+      console.log('sendMsg by child:', randomN)
+      if (window.opener) {
+        window.opener.postMessage({ msg: randomN }, "*")
+      }
+    }
+    window.onload = (e) => {
+      window.onmessage = (e) => {
+        console.log('子页接收的消息:', e)
+      }
+      sendMsg('child init')
+    }
+  </script>
+</body>
+
+</html>
