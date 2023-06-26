@@ -1,3 +1,4 @@
+# prepare
 ## 1 promise 手写
 ## 2 vite手写
 ## 3 webpack 手动搭建
@@ -177,3 +178,10 @@
 ## 常规css题
 
 ## [23-3月面经-前端常考JS编程题](https://juejin.cn/post/7223046446941110328?)
+
+Mozilla/Firefox : 归并排序（jsarray.c 源码）
+V8 ：数组长度小于等于 22 的用插入排序，其它的用快速排序（array.js 源码）见下面注释
+
+// In-place QuickSort algorithm.
+// For short (length <= 22) arrays, insertion sort is used for efficiency.
+Webkit ：底层实现用了 C++ 库中的 qsort() 方法（JSArray.cpp 源码）

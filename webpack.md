@@ -6,7 +6,7 @@
 - 1. 初始化参数
 > 从配置文件 `config` 和 `shell` 命令中 读取配置 合并为最终参数 `options`
 
-- 2. 开始编译
+- 2. 开始编译（初始化webpack Compiler && 插件）
 > 根据参数 `options` 初始化 `Compiler` 对象，加载并配置插件，进行插件的初始化
 
 - 3. 确定入口

@@ -79,7 +79,7 @@ xhr.send(null) */
 
 // 使用 Promise 封装 Ajax
 
-function getJSON(url) {
+/* function getJSON(url) {
   let promise = new Promise(function(resolve, reject) {
     let xhr = new XMLHttpRequest()
     xhr.open('GET', url, true)
@@ -99,7 +99,7 @@ function getJSON(url) {
     xhr.send(null)
   })
   return promise
-}
+} */
 
 /**
  * 21. 什么是尾调用，使用尾调用有什么好处?
@@ -234,3 +234,39 @@ setTimeout(() => {
 },0)
 
 console.log('script end') */
+
+
+const rl = require("readline").createInterface({ input: process.stdin });
+var iter = rl[Symbol.asyncIterator]();
+const readline = async () => (await iter.next()).value;
+
+void async function () {
+    // Write your code here
+    /* while(num = await readline()){
+      console.log(parseInt(num.toString(), 16))
+    } */
+    let num = await readline()
+    let numMap = {
+      0: 0,
+      1: 1,
+      2: 2,
+      3: 3,
+      4: 4,
+      5: 5,
+      6: 6,
+      7: 7,
+      8: 8,
+      9: 9,
+      A: 10,
+      B: 11,
+      C: 12,
+      D: 13,
+      E: 14,
+      F: 15,
+    }
+    let numSplit = num.split('').slice(2).reverse()
+    let res = numSplit.reduce((pre, cur, index) => {
+      return pre + numMap[cur] * Math.pow(16, index)
+    }, 0)
+    console.log(res)
+}()
