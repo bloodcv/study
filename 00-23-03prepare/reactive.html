@@ -1,0 +1,198 @@
+<!-- vue3 reactive proxy 代理手动实现 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app1">a</div>
+  <div id="app2">b</div>
+  <div id="app3">c</div>
+  <button onclick="changeFirst()">changeFirst</button>
+  <br />
+  <button onclick="changeSecond()">changeSecond</button>
+  <br />
+  <button onclick="addThird()">addThird</button>
+  <br />
+  <button onclick="changeThird()">changeThird</button>
+  <script>
+/*     window.onload = function () {
+      const $app1 = document.querySelector("#app1");
+      const $app2 = document.querySelector("#app2");
+      const $app3 = document.querySelector("#app3");
+
+      let activeEffect;
+      const effect = (fn) => {
+        activeEffect = fn
+        fn()
+      }
+
+      const bucket = new WeakMap()
+
+      const state = new Proxy(
+        { text1: "hello app1", text2: "hello app2", },
+        {
+          get: function (target, property, receiver) {
+            if (!activeEffect) return target[property];
+            let depsMap = bucket.get(target)
+            if (!depsMap) {
+              bucket.set(target, (depsMap = new Map()))
+            }
+            let deps = depsMap.get(property)
+            if (!deps) {
+              depsMap.set(property, (deps = new Set()))
+            }
+            deps.add(activeEffect)
+            activeEffect = null
+            return target[property]
+          },
+          set: function (target, property, value, receiver) {
+            target[property] = value
+            let depsMap = bucket.get(target)
+            if (!depsMap) {
+              bucket.set(target, (depsMap = new Map()))
+            }
+            let deps = depsMap.get(property)
+            deps && deps.forEach(_ => _('set：' + property));
+            return true
+          },
+        }
+      );
+
+      function effect1(n, p) {
+        if (n) {
+          console.log(n)
+        } else {
+          console.log('get:' + 1)
+        }
+        $app1.innerText = state.text1;
+      }
+      function effect2(n, p) {
+        if (n) {
+          console.log(n)
+        } else {
+          console.log('get:' + 2)
+        }
+        $app2.innerText = state.text2;
+      }
+      function effect3(n, p) {
+        if (n) {
+          console.log(n)
+        } else {
+          console.log('get:' + 3)
+        }
+        $app3.innerText = state.text3;
+      }
+
+      effect(effect1)
+      effect(effect2)
+
+      window.changeFirst = () => {
+        state.text1 = +new Date();
+      }
+      window.changeSecond = () => {
+        state.text2 = +new Date();
+      }
+      window.addThird = () => {
+        state.text3 = +new Date();
+        effect(effect3)
+      }
+      window.changeThird = () => {
+        state.text3 = +new Date();
+      }
+      
+    }; */
+    
+    let activeEffect;
+    const effect = (fn) => {
+      activeEffect = fn
+      fn()
+    }
+    const bucket = new WeakMap()
+    const tract = function (target, key) {
+      console.log('get', target, key)
+      let depsMap = bucket.get(target)
+      if (!depsMap) {
+        bucket.set(target, (depsMap = new Map()))
+      }
+      let deps = depsMap.get(key)
+      if (!deps) {
+        depsMap.set(key, (deps = new Set()))
+      }
+      if (activeEffect) {
+        deps.add(activeEffect)
+      }
+      activeEffect = null
+    }
+    const trigger = function (target, key) {
+      console.log('set', target, key)
+      let depsMap = bucket.get(target)
+      if (!depsMap) {
+        bucket.set(target, (depsMap = new Map()))
+      }
+      let deps = depsMap.get(key)
+      deps && deps.forEach(_ => _());
+    }
+    const reactive = function (obj)  {
+      return new Proxy(obj, {
+        get: function(target, property, receiver) {
+          tract(target, property)
+          return target[property]
+        },
+        set: function (target, property, value, receiver) {
+          target[property] = value
+          trigger(target, property)
+          return true
+        }
+      })
+    }
+    window.onload = function () {
+      const $app1 = document.querySelector("#app1");
+      const $app2 = document.querySelector("#app2");
+      const $app3 = document.querySelector("#app3");
+
+      const a = reactive({
+        aa: 'app-aa-1'
+      })
+      const b = reactive({
+        bb: 'app-bb-1'
+      })
+      let c = null
+      function effect1() {
+        $app1.innerText = a.aa;
+      }
+      function effect2() {
+        $app2.innerText = b.bb;
+      }
+      function effect3() {
+        $app3.innerText = c.cc;
+      }
+
+      effect(effect1)
+      effect(effect2)
+      
+      window.changeFirst = () => {
+        a.aa = +new Date();
+      }
+      window.changeSecond = () => {
+        b.bb = +new Date();
+      }
+      window.addThird = () => {
+        c = reactive({
+          cc: 'app-cc-1'
+        })
+        effect(effect3)
+      }
+      window.changeThird = () => {
+        c.cc = +new Date();
+      }
+    }
+  </script>
+</body>
+
+</html>
